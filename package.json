@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/djyde/spear#readme",
   "dependencies": {
-    "commander": "^2.8.1"
+    "async": "^1.4.0",
+    "commander": "^2.8.1",
+    "fs-extra": "^0.22.1"
   }
 }
