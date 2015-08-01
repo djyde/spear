@@ -1,6 +1,6 @@
 module.exports = {
-  project: require('./project')
+  project: require('./project'),
   // service: require('./service'),
-  // controller: require('./controller'),
+  controller: require('./controller')
   // template: require('./template')
 }

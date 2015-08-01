@@ -13,4 +13,18 @@ spear
   .description('Create a new Spear project')
   .action(generators.project)
 
+spear
+  .command('generate <component> <name>')
+  .alias('g')
+  .description('Generate a component')
+  .action(function(component,name){
+    switch (component) {
+      case 'controller':
+        generators.controller(component,name);
+        break;
+      default:
+        console.log('No component',component)
+    }
+  })
+
 spear.parse(process.argv);

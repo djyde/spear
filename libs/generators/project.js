@@ -38,6 +38,16 @@ module.exports = function(project){
       fs.writeFile(path.join(configFolder,'route.config.js'), configFileString, function(err){
         callback(err);
       })
+    },
+    function(callback){
+      fs.readFile(path.join(__dirname, '../templates/config.json'),function(err,data){
+        callback(err,data.toString().replace('{{project}}',project));
+      })
+    },
+    function(configString,callback){
+      fs.writeFile(path.join(projectFolder,'config.json'),configString,function(err){
+        callback(err);
+      })
     }
   ],
   function(err){
