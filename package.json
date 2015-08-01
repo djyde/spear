@@ -1,0 +1,28 @@
+{
+  "name": "spear",
+  "version": "0.0.1",
+  "description": "Angular on Spear",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "spear": "./bin/cli"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:djyde/spear.git"
+  },
+  "keywords": [
+    "angular",
+    "spear"
+  ],
+  "author": "Randy Lu <randypriv@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/djyde/spear/issues"
+  },
+  "homepage": "https://github.com/djyde/spear#readme",
+  "dependencies": {
+    "commander": "^2.8.1"
+  }
+}

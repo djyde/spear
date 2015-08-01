@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+var spear = require('commander')
+  , fs = require('fs')
+  , path = require('path')
+  , generators = require('../libs/generators')
+
+spear
+  .version(JSON.parse(fs.readFileSync(path.join(__dirname,'../package.json'))).version);
+
+spear
+  .command('new <project>')
+  .description('Create a new Spear project')
+  .action(generators.project)
+
+spear.parse(process.argv);
