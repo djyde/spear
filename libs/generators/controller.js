@@ -4,6 +4,7 @@ var fs = require('fs')
 
 module.exports = function(component,name){
   var controllerPath = path.join(process.cwd(),'app',name);
+
   async.waterfall([
     function(callback){
       fs.mkdir(controllerPath,function(err){
@@ -19,6 +20,17 @@ module.exports = function(component,name){
     },
     function(controllerString,callback){
       fs.writeFile(path.join(controllerPath,name + '.controller.js'),controllerString,function(err){
+        callback(err);
+      })
+    },
+    function(callback){
+      var htmlTemplate = path.join(__dirname,'../templates/controller/template.jade');
+      fs.readFile(htmlTemplate,function(err,data){
+        callback(err,data.toString().replace(/{{Controller}}/g,capitalizeFirstLetter(name)).replace(/{{controller}}/g,name));
+      })
+    },
+    function(htmlString,callback){
+      fs.writeFile(path.join(controllerPath,name + '.template.jade'),htmlString,function(err){
         callback(err);
       })
     }
